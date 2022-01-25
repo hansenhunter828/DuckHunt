@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{148E30C6-37D5-4FFA-96FE-1A6D72DCA7AE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DuckHunt</RootNamespace>
+    <AssemblyName>DuckHunt</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClayPigeon.cs" />
+    <Compile Include="Duck.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gameOverScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gameOverScreen.Designer.cs">
+      <DependentUpon>gameOverScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gameScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="gameScreen.Designer.cs">
+      <DependentUpon>gameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HighscoreClass.cs" />
+    <Compile Include="HowToPlayScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HowToPlayScreen.Designer.cs">
+      <DependentUpon>HowToPlayScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mainMenuScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="mainMenuScreen.Designer.cs">
+      <DependentUpon>mainMenuScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reticle.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gameOverScreen.resx">
+      <DependentUpon>gameOverScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gameScreen.resx">
+      <DependentUpon>gameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HowToPlayScreen.resx">
+      <DependentUpon>HowToPlayScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainMenuScreen.resx">
+      <DependentUpon>mainMenuScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alive Duck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dead Duck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shot Gun Shell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recticle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload 2.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading shell 2.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload 1.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading shell 1.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\out of ammo.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck dead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck left ani07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck left ani08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck left ani09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck left ani10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck left ani00.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck left ani01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck left ani02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck left ani03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck left ani04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck left ani05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck left ani06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck right 6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck right 7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck right 8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck right 9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck right 10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck right 0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck right 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck right 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck right 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck right 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck right 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck fall 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck fall 0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duck fall 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crosshair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crosshairEmpty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HighscoreTextFile.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Properties\ShotgunShotSound.mp3" />
+    <None Include="Resources\clay resized.png" />
+    <None Include="Resources\Clay Pigeon.png" />
+    <None Include="Resources\Clay Destroy-8.png" />
+    <None Include="Resources\Clay Destroy-7.png" />
+    <None Include="Resources\Clay Destroy-6.png" />
+    <None Include="Resources\Clay Destroy-5.png" />
+    <None Include="Resources\Clay Destroy-4.png" />
+    <None Include="Resources\Clay Destroy-3.png" />
+    <None Include="Resources\Clay Destroy-2.png" />
+    <None Include="Resources\Clay Destroy-1.png" />
+    <None Include="Resources\woodBannerResize3.png" />
+    <None Include="Resources\woodBannerResize2.png" />
+    <None Include="Resources\woodbannerResize1.png" />
+    <None Include="Resources\WoodBanner.png" />
+    <None Include="Resources\duckNoise2.mp3" />
+    <None Include="Resources\duckNoise1.mp3" />
+    <None Include="Resources\ShotgunShotSound.mp3" />
+    <None Include="Resources\CSFGR12 Background.png" />
+    <None Include="Resources\duck fall 0 resized.png" />
+    <None Include="Resources\duck fall 1 resized.png" />
+    <None Include="Resources\switch sound.mp3" />
+    <None Include="Resources\select sound.mp3" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
