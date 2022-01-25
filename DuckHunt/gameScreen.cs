@@ -18,6 +18,7 @@ namespace DuckHunt
     {
 
         ClayPigeon clay;
+        bool clayCreated;
         //reticle variables
         reticle shotThing;
         bool wDown = false;
@@ -196,10 +197,11 @@ namespace DuckHunt
 
             //check to see if clay will be in round
             int spawnClayChance = random.Next(0, 5);
-            if (spawnClayChance == 1)
+            if (spawnClayChance == 3)
             {
+                clayCreated = true;
                 int size = 32;
-                int x = 0;
+                int x = -32;
                 int y = 400;
                 int xSpeed = 20;
                 int ySpeed = 20;
@@ -286,7 +288,10 @@ namespace DuckHunt
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            clay.Move();
+            if (clayCreated)
+            {
+                clay.Move();
+            }
             //move reticle
             if (wDown && shotThing.y >= 5)
             {
@@ -529,16 +534,17 @@ namespace DuckHunt
                     e.Graphics.DrawImage(fallImages[frameFallNum], d.x, d.y); // draw duck images falling
                 }
             }
-
-            if (clay.clayState == "moving")
+            if (clayCreated)
             {
-                e.Graphics.DrawImage(Properties.Resources.clay_resized, clay.x, clay.y);
+                if (clay.clayState == "moving")
+                {
+                    e.Graphics.DrawImage(Properties.Resources.clay_resized, clay.x, clay.y);
+                }
+                else if (clay.clayState == "hit")
+                {
+                    e.Graphics.DrawImage(clayImages[clay.currentFrame], clay.x, clay.y);
+                }
             }
-            else if (clay.clayState == "hit")
-            {
-                e.Graphics.DrawImage(clayImages[clay.currentFrame], clay.x, clay.y);
-            }
-
 
             //draw player
             if (shotThing.ammo > 0) // draw image if player has ammo
@@ -579,6 +585,7 @@ namespace DuckHunt
             if (hitDucks == 10)
             {
                 e.Graphics.DrawString("PERFECT +10000", duckScoreFont, solidBrush, this.Width / 2, this.Height / 2); // draw +10000 to screen if player doesnt miss a single duck
+                points += 10000;
             }
 
             //Refresh labels

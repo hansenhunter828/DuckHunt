@@ -13,7 +13,7 @@ namespace DuckHunt
         int gravity = 13;
         public  int frameTimer = 0;
         public int currentFrame = 0;
-        public string clayState;
+        public string clayState = "none";
         public ClayPigeon(int _size, int _x, int _y, int _xSpeed, int _ySpeed, string _clayState)
         {
             size = _size;
